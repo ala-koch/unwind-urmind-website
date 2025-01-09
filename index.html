@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unwind Urmind</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            scroll-behavior: smooth;
+            padding-top: 80px; /* Add padding to the top of the body */
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px; /* Adjust padding to bring logo closer to navigation */
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 5px 10px;
+            transition: color 0.3s, border-bottom 0.3s;
+        }
+
+        nav ul li a.active {
+            border-bottom: 2px solid #fff;
+        }
+
+        .section {
+            padding: 60px 20px; /* Minimize space between sections */
+            text-align: center;
+            min-height: 100vh;
+        }
+
+        .hero {
+            background: url('/Users/alakoch/Downloads/UnwinUrmind/Photos/Photo1.JPG') no-repeat center center/cover;
+            color: #fff;
+            padding: 100px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 100vh;
+        }
+
+        .hero h2 {
+            font-size: 5em; /* Increase font size for the heading */
+        }
+
+        .hero p {
+            font-size: 3em; /* Increase font size for the paragraph */
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 600px; /* Set a fixed height for all images */
+            object-fit: cover; /* Ensure images cover the area without distortion */
+            border-radius: 10px;
+        }
+
+        .cta {
+            background-color: #000;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center; /* Center the text */
+        }
+
+        .events-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            list-style: none; /* Remove dots */
+            padding: 0;
+        }
+
+        .events-list li {
+            background-color: #fff;
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 5px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .section:nth-child(even) {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .section:nth-child(odd) {
+            background-color: #fff;
+            color: #000;
+        }
+
+        .vertical-photo {
+            width: 100%;
+            max-width: 800px; /* Increase max-width to make the photo bigger */
+            height: auto;
+            margin: 20px auto;
+            display: block;
+        }
+
+        #about {
+            margin-bottom: 0; /* Remove bottom margin */
+        }
+
+        #about p {
+            text-align: center; /* Center the text */
+            margin: 0 20px; /* Add invisible margin to the right and left */
+        }
+
+        #events {
+            margin-top: 0; /* Remove top margin */
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <img src="/Users/alakoch/Downloads/UnwinUrmind/Logo/logo-blanc.png" alt="Unwind Urmind Logo" style="width: 150px; height: auto; margin-bottom: 5px;">
+        <nav>
+            <ul>
+                <li><a href="#about" class="menu-link" data-target="about">About</a></li>
+                <li><a href="#events" class="menu-link" data-target="events">Events</a></li>
+                <li><a href="#gallery" class="menu-link" data-target="gallery">Gallery</a></li>
+                <li><a href="#contact" class="menu-link" data-target="contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h2>Welcome to our world</h2>
+        <p>Discover our events, music, and more!</p>
+    </div>
+
+    <!-- About Section -->
+    <div id="about" class="section">
+        <h2>About Us</h2>
+        <p>Unwind Urmind was born from the unique bond of friendship and a shared love for music, nurtured by the unspoken magic of afterhours gatherings. Our collective thrives on mutual inspiration, elevating each other's creative energies to craft immersive atmospheres that transcend the ordinary. We are driven by a desire to create not just events, but experiences—spaces where groove, connection, and freedom of expression come alive. On the 17th, we invite you to step into our world. Let’s dance, connect, and celebrate the soundscape we’ve crafted together.</p>
+    </div>
+
+    <!-- Events Section -->
+    <div id="events" class="section">
+        <h2>Upcoming Events</h2>
+        <p>Stay tuned for our upcoming events. Here is what we have planned:</p>
+        <ul class="events-list">
+            <li>Event 1: Unwind Urmind Edition 1, at The Maze, in Brussels - 27/Oct/2023</li>
+            <li>Event 2: Nocturama, at Mirano, in Brussels - 17/Jan/2024</li>
+        </ul>
+        <img src="/Users/alakoch/Downloads/UnwinUrmind/Photos/Nocturama.JPG" alt="Vertical Event Image" class="vertical-photo">
+    </div>
+
+    <!-- Gallery Section -->
+    <div id="gallery" class="section">
+        <h2>Gallery</h2>
+        <div class="gallery">
+            <img src="/Users/alakoch/Downloads/UnwinUrmind/Photos/Photo 5.JPG" alt="Event Image 1">
+            <img src="/Users/alakoch/Downloads/UnwinUrmind/Photos/Photo 2.JPG" alt="Event Image 2">
+            <img src="/Users/alakoch/Downloads/UnwinUrmind/Photos/Photo 3.JPG" alt="Event Image 3">
+        </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="cta">
+        <h2>Get in Touch</h2>
+        <p>Want to collaborate with us or learn more about our label? Contact us below.</p>
+    </div>
+
+    <!-- Contact Section -->
+    <div id="contact" class="section">
+        <h2>Contact Us</h2>
+        <form>
+            <input type="text" placeholder="Your Name" style="width: 80%; margin: 10px; padding: 10px;"><br>
+            <input type="email" placeholder="Your Email" style="width: 80%; margin: 10px; padding: 10px;"><br>
+            <textarea placeholder="Your Message" style="width: 80%; margin: 10px; padding: 10px;" rows="5"></textarea><br>
+            <button type="submit" style="padding: 10px 20px; background-color: #000; color: #fff; border: none;">Send</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Unwind Urmind Label. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const sections = document.querySelectorAll('.section');
+        const menuLinks = document.querySelectorAll('.menu-link');
+        const headerHeight = document.querySelector('header').offsetHeight;
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - headerHeight;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            menuLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.dataset.target === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        menuLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                const targetPosition = targetSection.offsetTop - headerHeight;
+
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
