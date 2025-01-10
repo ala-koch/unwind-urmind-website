@@ -13,7 +13,7 @@
             background-color: #f4f4f4;
             color: #333;
             scroll-behavior: smooth;
-            padding-top: 80px; /* Add padding to the top of the body */
+            padding-top: 80px;
         }
 
         a {
@@ -24,12 +24,27 @@
         header {
             background-color: #000;
             color: #fff;
-            padding: 10px 20px; /* Adjust padding to bring logo closer to navigation */
+            padding: 10px 20px;
             text-align: center;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+        }
+
+        .menu-toggle div {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 4px 0;
         }
 
         nav ul {
@@ -57,8 +72,14 @@
             border-bottom: 2px solid #fff;
         }
 
+        nav ul.collapsed {
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+        }
+
         .section {
-            padding: 60px 20px; /* Minimize space between sections */
+            padding: 60px 20px;
             text-align: center;
             min-height: 100vh;
         }
@@ -66,34 +87,33 @@
         .hero {
             background: url('photo1.JPG') no-repeat center center/cover;
             color: #fff;
-            padding: 50px 100px;
+            padding: 50px 20px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             min-height: 50vh;
-            max-height: 100px; /* Set a maximum height for the background image */
         }
 
         .hero h2 {
-            font-size: 5em; /* Increase font size for the heading */
+            font-size: 2.5em;
         }
 
         .hero p {
-            font-size: 3em; /* Increase font size for the paragraph */
+            font-size: 1.5em;
         }
 
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
         }
 
         .gallery img {
             width: 100%;
-            height: 600px; /* Set a fixed height for all images */
-            object-fit: cover; /* Ensure images cover the area without distortion */
+            height: auto;
+            object-fit: cover;
             border-radius: 10px;
         }
 
@@ -101,7 +121,7 @@
             background-color: #000;
             color: #fff;
             padding: 40px 20px;
-            text-align: center; /* Center the text */
+            text-align: center;
         }
 
         .events-list {
@@ -109,7 +129,7 @@
             flex-direction: column;
             align-items: center;
             gap: 10px;
-            list-style: none; /* Remove dots */
+            list-style: none;
             padding: 0;
         }
 
@@ -118,40 +138,9 @@
             color: #000;
             padding: 10px 20px;
             border-radius: 5px;
-            width: 80%;
-            max-width: 600px;
+            width: 90%;
+            max-width: 400px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .section:nth-child(even) {
-            background-color: #000;
-            color: #fff;
-        }
-
-        .section:nth-child(odd) {
-            background-color: #fff;
-            color: #000;
-        }
-
-        .vertical-photo {
-            width: 100%;
-            max-width: 800px; /* Increase max-width to make the photo bigger */
-            height: auto;
-            margin: 20px auto;
-            display: block;
-        }
-
-        #about {
-            margin-bottom: 0; /* Remove bottom margin */
-        }
-
-        #about p {
-            text-align: center; /* Center the text */
-            margin: 0 20px; /* Add invisible margin to the right and left */
-        }
-
-        #events {
-            margin-top: 0; /* Remove top margin */
         }
 
         footer {
@@ -161,14 +150,51 @@
             padding: 20px 10px;
             font-size: 14px;
         }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                background-color: #000;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                padding: 10px 0;
+            }
+
+            nav ul.collapsed {
+                display: none;
+            }
+
+            .hero h2 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Header -->
     <header>
-        <img src="logoblanc.png" alt="Unwind Urmind Logo" style="width: 150px; height: auto; margin-bottom: 5px;">
+        <img src="logoblanc.png" alt="Unwind Urmind Logo" style="width: 100px; height: auto;">
+        <div class="menu-toggle" id="menu-toggle">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
         <nav>
-            <ul>
+            <ul class="collapsed" id="menu">
                 <li><a href="#about" class="menu-link" data-target="about">About</a></li>
                 <li><a href="#events" class="menu-link" data-target="events">Events</a></li>
                 <li><a href="#gallery" class="menu-link" data-target="gallery">Gallery</a></li>
@@ -186,18 +212,16 @@
     <!-- About Section -->
     <div id="about" class="section">
         <h2>About Us</h2>
-        <p>Unwind Urmind was born from the unique bond of friendship and a shared love for music, nurtured by the unspoken magic of afterhours gatherings. Our collective thrives on mutual inspiration, elevating each other's creative energies to craft immersive atmospheres that transcend the ordinary. We are driven by a desire to create not just events, but experiences—spaces where groove, connection, and freedom of expression come alive. On the 17th, we invite you to step into our world. Let’s dance, connect, and celebrate the soundscape we’ve crafted together.</p>
+        <p>Unwind Urmind was born from the unique bond of friendship and a shared love for music, nurtured by the unspoken magic of afterhours gatherings. Our collective thrives on mutual inspiration, elevating each other's creative energies to craft immersive atmospheres that transcend the ordinary.</p>
     </div>
 
     <!-- Events Section -->
     <div id="events" class="section">
         <h2>Upcoming Events</h2>
-        <p>Stay tuned for our upcoming events. Here is what we have planned:</p>
         <ul class="events-list">
             <li>Event 1: Unwind Urmind Edition 1, at The Maze, in Brussels - 27/Oct/2023</li>
             <li>Event 2: Nocturama, at Mirano, in Brussels - 17/Jan/2024</li>
         </ul>
-        <img src="noc.JPG" alt="Vertical Event Image" class="vertical-photo">
     </div>
 
     <!-- Gallery Section -->
@@ -208,12 +232,6 @@
             <img src="photo2.JPG" alt="Event Image 2">
             <img src="photo3.JPG" alt="Event Image 3">
         </div>
-    </div>
-
-    <!-- Call to Action -->
-    <div class="cta">
-        <h2>Get in Touch</h2>
-        <p>Want to collaborate with us or learn more about our label? Contact us below.</p>
     </div>
 
     <!-- Contact Section -->
@@ -233,6 +251,13 @@
     </footer>
 
     <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('menu');
+
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('collapsed');
+        });
+
         const sections = document.querySelectorAll('.section');
         const menuLinks = document.querySelectorAll('.menu-link');
         const headerHeight = document.querySelector('header').offsetHeight;
@@ -253,20 +278,6 @@
                 if (link.dataset.target === current) {
                     link.classList.add('active');
                 }
-            });
-        });
-
-        menuLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = link.getAttribute('href').substring(1);
-                const targetSection = document.getElementById(targetId);
-                const targetPosition = targetSection.offsetTop - headerHeight;
-
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
             });
         });
     </script>
